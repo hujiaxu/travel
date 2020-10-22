@@ -1,16 +1,7 @@
 <template>
   <div>
     <ul class="list">
-      <li 
-        class="item" 
-        v-for="(item, index) in elements" 
-        :key="index"
-        @click="handleClick"
-        @touchstart="handleTouchStart"
-        @touchmove="handleTouchMove"
-        @touchend="handleTouchEnd"
-        :ref="item"
-      >
+      <li class="item" v-for="(item, index) in elements" :key="index"  @click="handleClick"  @touchstart="handleTouchStart"  @touchmove="handleTouchMove" @touchend="handleTouchEnd" :ref="item">
         {{item}}
       </li>
     </ul>
@@ -51,7 +42,6 @@
       },
       handleTouchMove(e) {
         if (this.touchStatus) {
-
           if (this.timer) {
             clearTimeout(this.timer)
           }

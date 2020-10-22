@@ -5,7 +5,7 @@
     </div>
     <div class="search-content" v-show="keyWord" ref="scrollList">
       <ul>
-        <li v-for="(item, index) in listData" :key="index" class="search-item border-bottom">{{item}}</li>
+        <li v-for="(item, index) in listData" :key="index" class="search-item border-bottom" @click="handleCityClick(item)">{{item}}</li>
         <li v-show="hasList">没有您搜索的城市</li>
       </ul>
     </div>
@@ -35,6 +35,10 @@
     methods: {
       init() {
         this.scroll = new BScroll(this.$refs.scrollList)
+      },
+      handleCityClick(city) {
+        this.$store.commit('changeCity', city)
+        this.$router.push('/')
       }
     },
     watch: {
@@ -44,7 +48,8 @@
         }
 
         if (!this.keyWord) {
-          return this.listData = []
+          this.listData = []
+          return this.listData
         }
 
         this.timer = setTimeout(() => {

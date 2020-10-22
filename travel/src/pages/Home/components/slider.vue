@@ -38,7 +38,7 @@
         currentPageIndex: 0
       }
     },
-    updated() {
+    beforeUpdated() {
       this.slide.refresh()
     },
     beforeDestroy() {
@@ -59,7 +59,7 @@
         this.slide.on('scrollEnd', this._onScrollEnd)
 
         this.slide.on('slideWillChange', (page) => {
-          console.log(page.pageX)
+          // console.log(page.pageX)
           this.currentPageIndex = page.pageX
         })
         this.slide.on('refresh', () => {})

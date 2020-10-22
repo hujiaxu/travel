@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App'
+import store from './store'
 import router from './router'
 import fastClick from 'fastclick'
 import 'styles/reset.css'
@@ -14,5 +15,6 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
